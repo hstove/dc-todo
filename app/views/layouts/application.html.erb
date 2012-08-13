@@ -19,7 +19,7 @@
             <% if @user != nil %>
             <p class="sample"><%= @user.email %> <%= link_to 'logout', signout_path %></p>
             <% else %>
-            <p class="sample"><%= link_to "Login", signin_path %></p>
+            <p class="sample"><%= link_to "/auth/dailycred", signin_path %></p>
             <% end %>
         </div>
         <div id="content">
