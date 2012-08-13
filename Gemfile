@@ -10,7 +10,9 @@ gem 'omniauth-dailycred', '0.0.2'
 
 platform :ruby do
   gem 'pg', '~> 0.13.2'
-  gem 'sqlite3' 
+  group :development do
+    gem 'sqlite3' 
+  end
   gem 'unicorn'
 end
 
