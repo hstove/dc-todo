@@ -2,6 +2,7 @@ class ListsController < ApplicationController
 
   def create
     @list = List.new(params[:list])
+    @list.user_id = current_user.uid
     if @list.save
         flash[:notice] = "Your list was created"
     else

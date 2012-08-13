@@ -15,11 +15,12 @@
 <body>
     <div id="all">
         <div id="header">
-            <div id="logo">
-            	<a href="http://www.engineyard.com">Engine Yard</a>
-            </div>
-            <h1><span class="intro">Getting Things Done</span> deployed on <span class="branding">Engine Yard AppCloud</span></h1>
-            <p class="sample">Sample Deployment Application</p>
+            <h1><span class="intro">Getting Things Done</span></h1>
+            <% if @user != nil %>
+            <p class="sample"><%= @user.email %> <%= link_to 'logout', signout_path %></p>
+            <% else %>
+            <p class="sample"><%= link_to "Login", signin_path %></p>
+            <% end %>
         </div>
         <div id="content">
             <% if alerted = alert %>
