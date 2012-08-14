@@ -32,7 +32,7 @@ class TasksController < ApplicationController
     else
         flash[:alert] = "There was an error creating your task."
     end
-    dc_event("New event", @task.name)
+    #dc_event("New event", @task.name)
     redirect_to(list_tasks_url(@list))
   end
   
