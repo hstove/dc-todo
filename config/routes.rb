@@ -7,6 +7,7 @@ Listr::Application.routes.draw do
   match "/auth/:provider/callback" => "sessions#create"
   match "/signout" => "sessions#destroy", :as => :signout
   match "/signin" => "sessions#hello", :as => :signin
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -3,6 +3,7 @@ class List < ActiveRecord::Base
   validates_uniqueness_of :name, :on => :create, :message => "must be unique"
   
   has_many :tasks , :dependent => :destroy
+  belongs_to :user
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
