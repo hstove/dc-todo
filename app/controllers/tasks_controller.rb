@@ -12,10 +12,10 @@ class TasksController < ApplicationController
   end
 
   def index
-    @todo   = Task.where(:done => false)
-    @task   = Task.new
+    @todo   = @user.tasks.where(:done => false)
+    @task   = @user.tasks.new
     @lists  = @user.lists
-    @list   = List.new
+    @list   = @user.lists.new
     
     respond_to do |format|
       format.html
@@ -27,6 +27,7 @@ class TasksController < ApplicationController
     @list = List.find(params[:list_id])
     @task = @list.tasks.new(params[:task])
     if @task.save
+        dc_event("New Task", @task.name)
         flash[:notice] = "Your task was created."
     else
         flash[:alert] = "There was an error creating your task."
