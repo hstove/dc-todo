@@ -39,16 +39,24 @@
 		</div>
     </div>
     <!-- dailycred -->
-  <script>
-  var home = 'http'+ (document.location.hostname === 'localhost' ? '://localhost:9000' : 's://www.dailycred.com');
-  var dc_opts = {"clientId":"85ee2b19-9e07-4ff1-8953-e44ed8fc8edc"};
-  (function() {
-    var dc = document.createElement("script");
-    dc.type = "text/javascript"; dc.async = true; 
-    dc.src = 'http'+ (document.location.hostname === 'localhost' ? '://localhost:9000' : 's://www.dailycred.com') + '/public/js/cred.coffee';
-    document.body.appendChild(dc);
-  })();
-  </script>
-  <!-- end dailycred -->
+    <script type="text/javascript">
+    (function() {
+      var dc, dlh, home, id, page, referrer, title, url;
+      window.dc_opts = {
+        clientId: "b5cdda2f-2f06-493b-ab8c-3a1d28e82ef8"
+      };
+      id = dc_opts.clientId;
+      home = "https://www.dailycred.com";
+      dlh = document.location.href;
+      page = dlh.indexOf('#') > -1 ? dlh.substring(0, dlh.indexOf("#")) : dlh;
+      title = document.title ? document.title : "";
+      referrer = document.referrer ? document.referrer : "";
+      dc = document.createElement("img");
+      url = "" + home + "/dc.gif?page=" + page + "&title=" + title + "&client_id=" + window.dc_opts.clientId + "&referrer=" + referrer;
+      dc.src = url;
+      document.body.appendChild(dc);
+    }).call(this);
+    </script>
+    <!-- end dailycred -->
 </body>
 </html>
